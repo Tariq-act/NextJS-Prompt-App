@@ -16,8 +16,6 @@ const CreatePrompt = () => {
     tag: '',
   });
 
-  console.log(session);
-
   const createPrompt = async (e) => {
     e.preventDefault();
 
