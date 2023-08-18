@@ -18,8 +18,20 @@ const PromptCardList = ({ data, handleTagClick }) => {
 };
 
 const Feed = () => {
-  const [searchText, setSearchText] = useState('');
   const [posts, setPosts] = useState([]);
+
+  const [searchText, setSearchText] = useState('');
+
+  const filterPrompts = (searchText) => {
+    const regex = new RegExp(searchText, 'i');
+
+    return posts.filter(
+      (item) =>
+        regex.test(item.creator.username) ||
+        regex.test(item.creator.tag) ||
+        regex.test(item.creator.prompt)
+    );
+  };
 
   const handleSearchChange = (e) => {};
 
